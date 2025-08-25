@@ -1,10 +1,17 @@
 {
   "name": "Anti-Productivity Reminder",
-  "description": "Automatically distracts you every 10 minutes with silly reminders 😜",
+  "description": "Automatically distracts you every 10 minutes with silly reminders 🧠",
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["notifications", "alarms"],
   "action": {
+    "default_popup": "index.html",
     "default_icon": "logo.png"
+  },
+  "background": {
+    "service_worker": "script.js"
+  },
+  "icons": {
+    "128": "logo.png"
   }
 }
