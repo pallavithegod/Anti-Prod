@@ -1,10 +1,25 @@
-// Funny distracting messages
-const messages = [
-  "🚨 Stop working! Check if your fridge light turns off when the door closes.",
-  "😜 Hey! Scroll Instagram, someone might have posted a cat meme!",
-  "🎮 Productivity is overrated. Time for one round of Snake?",
-  "🍕 Did you know pizza tastes better when you’re procrastinating?",
-  "😂 Imagine if you were working instead of reading this…"
+// List of distracting messages + links
+const distractions = [
+  { 
+    message: "😜 Instagram is waiting... new reels just dropped!", 
+    url: "https://www.instagram.com" 
+  },
+  { 
+    message: "📢 Facebook drama alert: someone probably posted a hot take.", 
+    url: "https://www.facebook.com" 
+  },
+  { 
+    message: "🔥 Twitter controversies await you. Don’t miss the chaos!", 
+    url: "https://twitter.com/explore" 
+  },
+  { 
+    message: "👀 Reddit wants you to argue with strangers!", 
+    url: "https://www.reddit.com" 
+  },
+  { 
+    message: "🎬 YouTube has infinite distractions just for you.", 
+    url: "https://www.youtube.com" 
+  }
 ];
 
 // Create alarm to trigger every 10 minutes
@@ -15,18 +30,35 @@ chrome.runtime.onInstalled.addListener(() => {
 // Show notification when alarm fires
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "reminder") {
-    const message = messages[Math.floor(Math.random() * messages.length)];
-    chrome.notifications.create({
-      type: "basic",
-      iconUrl: "logo.png",
-      title: "😈 Anti-Productivity Reminder",
-      message: message,
-      priority: 2
-    }, (id) => {
-      // Auto clear notification after 10 seconds
-      setTimeout(() => {
-        chrome.notifications.clear(id);
-      }, 10000);
-    });
+    const distraction = distractions[Math.floor(Math.random() * distractions.length)];
+
+    chrome.notifications.create(
+      "reminderNotif", 
+      {
+        type: "basic",
+        iconUrl: "logo.png",
+        title: "😈 Anti-Productivity Reminder",
+        message: distraction.message,
+        priority: 2
+      },
+      (id) => {
+        // Auto-clear notification after 10 seconds
+        setTimeout(() => {
+          chrome.notifications.clear(id);
+        }, 10000);
+      }
+    );
+
+    // Save URL for later click handling
+    chrome.storage.local.set({ lastUrl: distraction.url });
   }
+});
+
+// Handle click on notification
+chrome.notifications.onClicked.addListener(() => {
+  chrome.storage.local.get("lastUrl", (data) => {
+    if (data.lastUrl) {
+      chrome.tabs.create({ url: data.lastUrl });
+    }
+  });
 });
