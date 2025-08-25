@@ -1,4 +1,4 @@
-###Demo Video Link - **https://youtu.be/Cjk4SspoGk4**]
+###Demo Video Link - https://youtu.be/Cjk4SspoGk4]
 
 # 🛑 Anti-Prod – Anti-Productivity Reminder
 
@@ -13,4 +13,4 @@ Perfect for when you *don’t* want to stay productive.
 - ⚡ First popup can appear right after install (test mode with `delayInMinutes`).
 - 🎲 Randomized anti-motivational messages inside popup.
 - 🔗 Quick links to **Instagram, Facebook, Twitter/X** that open in new tabs.
-- ❌ “Dismiss” button to close popup if you’re resisting temptation.
+- ❌ No “Dismiss” button to ensure that your temptations make you non-productive.
