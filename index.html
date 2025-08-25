@@ -1,41 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Anti-Productivity Reminder</title>
+  <meta charset="UTF-8">
+  <title>😈 Anti-Productivity Hub</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #eee;
+      margin: 0;
+      padding: 25px;
       text-align: center;
-      padding: 20px;
-      width: 350px;
-      height: 250px;
-      background: #fdf6e3;
     }
+
     h1 {
-      font-size: 22px;
+      font-size: 1.4em;
       margin-bottom: 10px;
+      color: #ff4d6d;
     }
+
     p {
-      font-size: 16px;
+      font-size: 0.95em;
+      margin-bottom: 20px;
+      color: #ccc;
     }
-    button {
+
+    .links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .links a {
+      display: block;
+      padding: 12px;
+      background: #222;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #eee;
+      font-weight: bold;
+      font-size: 0.9em;
+      transition: 0.2s ease-in-out;
+    }
+
+    .links a:hover {
+      background: #ff4d6d;
+      color: #fff;
+      transform: scale(1.07);
+    }
+
+    footer {
       margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      background: #ff7043;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #ff5722;
+      font-size: 0.75em;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>⏰ Take a Break!</h1>
-  <p>Your 10-minute Anti-Productivity reminder.</p>
-  <button onclick="window.close()">Dismiss</button>
+  <h1>😈 Anti-Productivity Hub</h1>
+  <p>Your daily dose of distractions 👇</p>
+
+  <div class="links">
+    <a href="https://www.instagram.com" target="_blank">📸 Instagram</a>
+    <a href="https://www.facebook.com" target="_blank">📢 Facebook</a>
+    <a href="https://twitter.com/explore" target="_blank">🔥 Twitter</a>
+    <a href="https://www.reddit.com" target="_blank">👀 Reddit</a>
+    <a href="https://www.youtube.com" target="_blank">🎬 YouTube</a>
+    <a href="https://open.spotify.com" target="_blank">🎶 Spotify</a>
+  </div>
+
+  <footer>
+    Auto-reminders will bug you every 10 minutes 😉
+  </footer>
 </body>
 </html>
