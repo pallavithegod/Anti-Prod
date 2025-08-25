@@ -21,13 +21,9 @@ const distractions = [
     url: "https://www.youtube.com" 
   }
 ];
-
-// Create alarm to trigger every 10 minutes
 chrome.runtime.onInstalled.addListener(() => {
   chrome.alarms.create("reminder", { delayInMinutes: 1, periodInMinutes: 10 });
 });
-
-// Show notification when alarm fires
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "reminder") {
     const distraction = distractions[Math.floor(Math.random() * distractions.length)];
@@ -48,13 +44,9 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         }, 10000);
       }
     );
-
-    // Save URL for later click handling
     chrome.storage.local.set({ lastUrl: distraction.url });
   }
 });
-
-// Handle click on notification
 chrome.notifications.onClicked.addListener(() => {
   chrome.storage.local.get("lastUrl", (data) => {
     if (data.lastUrl) {
