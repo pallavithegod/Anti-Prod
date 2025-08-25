@@ -3,9 +3,6 @@
   "description": "Automatically distracts you every 10 minutes with silly reminders 😜",
   "version": "1.0",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "background.js"
-  },
   "permissions": ["notifications", "alarms"],
   "action": {
     "default_icon": "logo.png"
