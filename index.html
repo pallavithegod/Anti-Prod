@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Anti-Productivity Reminder</title>
+  <meta charset="UTF-8">
+  <title>😈 Anti-Productivity Hub</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #eee;
+      margin: 0;
+      padding: 25px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 0.95em;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .links a {
+      display: block;
+      padding: 12px;
+      background: #222;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #eee;
+      font-weight: bold;
+      font-size: 0.9em;
+      transition: 0.2s ease-in-out;
+    }
+
+    .links a:hover {
+      background: #ff4d6d;
+      color: #fff;
+      transform: scale(1.07);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.75em;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <h2>Take a Break 😎</h2>
-  <button id="start">Start Reminders</button>
-  <button id="stop">Stop Reminders</button>
+  <h1>😈 Anti-Productivity Hub</h1>
+  <p>Your daily dose of distractions 👇</p>
 
-  <script src="popup.js"></script>
+  <div class="links">
+    <a href="https://www.instagram.com" target="_blank">📸 Instagram</a>
+    <a href="https://www.facebook.com" target="_blank">📢 Facebook</a>
+    <a href="https://twitter.com/explore" target="_blank">🔥 Twitter</a>
+    <a href="https://www.reddit.com" target="_blank">👀 Reddit</a>
+    <a href="https://www.youtube.com" target="_blank">🎬 YouTube</a>
+    <a href="https://open.spotify.com" target="_blank">🎶 Spotify</a>
+  </div>
+
+  <footer>
+    Auto-reminders will bug you every 10 minutes 😉
+  </footer>
 </body>
 </html>

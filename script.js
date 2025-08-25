@@ -1,40 +1,23 @@
-// List of distracting messages + links
-const distractions = [
-  { 
-    message: "😜 Instagram is waiting... new reels just dropped!", 
-    url: "https://www.instagram.com" 
-  },
-  { 
-    message: "📢 Facebook drama alert: someone probably posted a hot take.", 
-    url: "https://www.facebook.com" 
-  },
-  { 
-    message: "🔥 Twitter controversies await you. Don’t miss the chaos!", 
-    url: "https://twitter.com/explore" 
-  },
-  { 
-    message: "👀 Reddit wants you to argue with strangers!", 
-    url: "https://www.reddit.com" 
-  },
-  { 
-    message: "🎬 YouTube has infinite distractions just for you.", 
-    url: "https://www.youtube.com" 
-  }
+// Just messages now (no href links here)
+const messages = [
+  "🚨 Stop working! The fridge light mystery still isn’t solved.",
+  "😜 Instagram reels > assignments.",
+  "🔥 Someone is fighting on Twitter right now. Go check!",
+  "👀 Reddit wants your opinion nobody asked for.",
+  "🎬 YouTube has exactly what you didn’t know you wanted to watch."
 ];
 chrome.runtime.onInstalled.addListener(() => {
   chrome.alarms.create("reminder", { delayInMinutes: 1, periodInMinutes: 10 });
 });
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "reminder") {
-    const distraction = distractions[Math.floor(Math.random() * distractions.length)];
-
+    const message = messages[Math.floor(Math.random() * messages.length)];
     chrome.notifications.create(
-      "reminderNotif", 
       {
         type: "basic",
         iconUrl: "logo.png",
         title: "😈 Anti-Productivity Reminder",
-        message: distraction.message,
+        message: message,
         priority: 2
       },
       (id) => {
