@@ -1,25 +1,10 @@
-// List of distracting messages + links
-const distractions = [
-  { 
-    message: "😜 Instagram is waiting... new reels just dropped!", 
-    url: "https://www.instagram.com" 
-  },
-  { 
-    message: "📢 Facebook drama alert: someone probably posted a hot take.", 
-    url: "https://www.facebook.com" 
-  },
-  { 
-    message: "🔥 Twitter controversies await you. Don’t miss the chaos!", 
-    url: "https://twitter.com/explore" 
-  },
-  { 
-    message: "👀 Reddit wants you to argue with strangers!", 
-    url: "https://www.reddit.com" 
-  },
-  { 
-    message: "🎬 YouTube has infinite distractions just for you.", 
-    url: "https://www.youtube.com" 
-  }
+// Just messages now (no href links here)
+const messages = [
+  "🚨 Stop working! The fridge light mystery still isn’t solved.",
+  "😜 Instagram reels > assignments.",
+  "🔥 Someone is fighting on Twitter right now. Go check!",
+  "👀 Reddit wants your opinion nobody asked for.",
+  "🎬 YouTube has exactly what you didn’t know you wanted to watch."
 ];
 
 // Create alarm to trigger every 10 minutes
@@ -30,15 +15,13 @@ chrome.runtime.onInstalled.addListener(() => {
 // Show notification when alarm fires
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "reminder") {
-    const distraction = distractions[Math.floor(Math.random() * distractions.length)];
-
+    const message = messages[Math.floor(Math.random() * messages.length)];
     chrome.notifications.create(
-      "reminderNotif", 
       {
         type: "basic",
         iconUrl: "logo.png",
         title: "😈 Anti-Productivity Reminder",
-        message: distraction.message,
+        message: message,
         priority: 2
       },
       (id) => {
@@ -48,17 +31,5 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         }, 10000);
       }
     );
-
-    // Save URL for later click handling
-    chrome.storage.local.set({ lastUrl: distraction.url });
   }
-});
-
-// Handle click on notification
-chrome.notifications.onClicked.addListener(() => {
-  chrome.storage.local.get("lastUrl", (data) => {
-    if (data.lastUrl) {
-      chrome.tabs.create({ url: data.lastUrl });
-    }
-  });
 });
